@@ -6,7 +6,7 @@ class ProductsSerializer(serializers.HyperlinkedModelSerializer):
 		model = models.Products
 		fields = '__all__'
 
-class CustomersSerializer(serializers.ModelSerializer):
+class CustomersSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = models.Customers
 		fields = ('id', 'email', 'name', 'favorites')
