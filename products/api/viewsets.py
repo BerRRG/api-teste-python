@@ -4,12 +4,15 @@ from products import models
 from rest_framework import status
 from rest_framework.response import Response
 import json
+from rest_framework.permissions import IsAuthenticated
 
 class ProductsViewSet(viewsets.ModelViewSet):
+	permission_classes = (IsAuthenticated,)
 	serializer_class = serializers.ProductsSerializer
 	queryset = models.Products.objects.all()
 
 class CustomersViewSet(viewsets.ModelViewSet):
+	permission_classes = (IsAuthenticated,)
 	serializer_class = serializers.CustomersSerializer
 	queryset = models.Customers.objects.all()
 
