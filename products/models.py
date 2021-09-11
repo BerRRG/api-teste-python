@@ -13,10 +13,6 @@ class Products(models.Model):
 	reviewScore = models.IntegerField()
 	price = models.DecimalField(max_digits = 5,decimal_places = 2)
 
-	def save(self, *args, **kwargs):
-		print(self)
-		raise ValueError("Updating the value of creator isn't allowed")		
-
 	def __str__(self):
 		return self.title
 
@@ -31,18 +27,3 @@ class Customers(models.Model):
 
 	def __str__(self):
 		return self.name
-
-def favorites_changed(sender, instance, pk_set, **kwargs):
-	allIds = []
-	storedIds = instance.favorites.all()
-	for i in storedIds:
-		allIds.append(i.id)
-
-	addedIds = pk_set
-	for i in addedIds:
-		allIds.append(i)
-
-	if (len(allIds) > Customers.MAX_FAVORITES):
-		raise BadRequest('Max number of favorites is 3.')
-
-m2m_changed.connect(favorites_changed, sender=Customers.favorites.through)
