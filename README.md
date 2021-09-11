@@ -4,10 +4,11 @@ This is a python test API.
 
 ## Deploy (local)
 
-- `git clone`;
-- `python3 -m venv env`;
-- `source env/bin/activate`;
-- `pip install -r requirements.txt`;
+- `git clone`
+- `python3 -m venv env`
+- `source env/bin/activate`
+- `pip install -r requirements.txt`
+- `python manage.py migrate`
 - `python manage.py runserver`
 
 ## Request example
