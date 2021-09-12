@@ -17,7 +17,7 @@ class CustomersViewSet(viewsets.ModelViewSet):
 	queryset = models.Customers.objects.all()
 
 	def create(self, request, *args, **kwargs):
-		if (len(request.data['favorites']) > models.Customers.MAX_FAVORITES):
+		if (len(json.loads(json.dumps(dict(request.data)))['favorites']) > models.Customers.MAX_FAVORITES):
 			return Response('Número máximo de favoritos excedido', status=status.HTTP_400_BAD_REQUEST)
 
 		serializer = self.get_serializer(data=request.data)
