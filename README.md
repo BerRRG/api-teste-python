@@ -10,9 +10,10 @@ This is a python test API.
 - `pip install -r requirements.txt`
 - Configure seu MySQL no arquivo settings.py
 - Crie o banco de dados
+- `python manage.py makemigrations`
 - `python manage.py migrate`
-- `python manage.py runserver`
 - `python manage.py createsuperuser`
+- `python manage.py runserver`
 - Logue usuário criado para pegar token
 
 ## Request example
